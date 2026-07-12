@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEMURA — Prototipo Carrusel 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A; --ink-2: #141414; --paper: #F5F3EE;
+    --orange: #FF6600; --orange-2: #FF8A33;
+    --line: rgba(245,243,238,.12); --line-strong: rgba(245,243,238,.22);
+    --font-display: 'Archivo Black', Impact, sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --ease: cubic-bezier(.16,.84,.44,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--ink); color: var(--paper); font-family: var(--font-body); padding: 60px 20px; min-height:100vh; }
+  .eyebrow { font-family: var(--font-body); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color: var(--orange); text-align:center; margin-bottom:10px; }
+  h1 { font-family: var(--font-display); font-size: clamp(28px,5vw,48px); text-align:center; margin-bottom:50px; text-transform:uppercase; }
+
+  .stage { position:relative; height: 420px; perspective: 1400px; display:flex; align-items:center; justify-content:center; }
+  .track { position:relative; width:100%; height:100%; transform-style:preserve-3d; }
+  .slide {
+    position:absolute; top:50%; left:50%; width:300px; height:380px;
+    margin:-190px 0 0 -150px; border-radius:10px; overflow:hidden;
+    background: var(--ink-2); border:1px solid var(--line-strong);
+    transition: transform .7s var(--ease), opacity .7s var(--ease), filter .7s var(--ease);
+    cursor:pointer; will-change: transform, opacity;
+  }
+  .slide img { width:100%; height:70%; object-fit:cover; display:block; filter:saturate(1.05); }
+  .slide .info { padding:14px 16px; }
+  .slide .info .tag { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--orange); }
+  .slide .info h3 { font-family:var(--font-display); font-size:16px; margin-top:6px; text-transform:uppercase; line-height:1.2; }
+
+  .nav-dots { display:flex; justify-content:center; gap:8px; margin-top:34px; }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--line-strong); border:none; cursor:pointer; transition:all .3s var(--ease); }
+  .dot.active { background:var(--orange); width:22px; border-radius:4px; }
+
+  .arrow { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%;
+    background:rgba(20,20,20,.7); border:1px solid var(--line-strong); color:var(--paper); cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:18px; z-index:10; transition:all .25s var(--ease); }
+  .arrow:hover { background:var(--orange); border-color:var(--orange); color:var(--ink); }
+  .arrow.prev { left:0; } .arrow.next { right:0; }
+
+  .caption-fade { text-align:center; margin-top:10px; font-size:13px; color:rgba(245,243,238,.55); min-height:18px; }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Prototipo — no aplicado al sitio todavía</div>
+<h1>Carrusel 3D Coverflow</h1>
+
+<div class="stage" id="stage">
+  <button class="arrow prev" id="prevBtn">‹</button>
+  <div class="track" id="track"></div>
+  <button class="arrow next" id="nextBtn">›</button>
+</div>
+<div class="nav-dots" id="dots"></div>
+<div class="caption-fade">Autoplay · loop infinito · profundidad GPU · swipe en móvil — clic en una tarjeta lateral para centrarla</div>
+
+<script>
+  // Esto simula lo que vendría de la hoja BANNERS del Excel:
+  // imagen, titulo, descripcion, enlace, orden, activo
+  const SLIDES = [
+    { img: 'https://placehold.co/600x800/1a1a1a/FF6600?text=Anime+Premium', tag:'Ropa · Anime Premium', titulo:'Camiseta Eren V1' },
+    { img: 'https://placehold.co/600x800/1a1a1a/FF8A33?text=Kids', tag:'Ropa · Niños', titulo:'Camiseta Dragón Kids' },
+    { img: 'https://placehold.co/600x800/222/FF6600?text=Gorras', tag:'Gorras', titulo:'Gorra Bordada NEMURA' },
+    { img: 'https://placehold.co/600x800/1a1a1a/FF8A33?text=Vasos', tag:'Vasos', titulo:'Vaso Térmico Escorpión' },
+    { img: 'https://placehold.co/600x800/222/FF6600?text=Digital', tag:'Diseños Digitales', titulo:'Pack Vectores Vol.1' },
+  ];
+
+  let current = 0;
+  const track = document.getElementById('track');
+  const dotsWrap = document.getElementById('dots');
+
+  SLIDES.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'slide';
+    el.innerHTML = `<img src="${s.img}" alt="${s.titulo}"><div class="info"><div class="tag">${s.tag}</div><h3>${s.titulo}</h3></div>`;
+    el.addEventListener('click', () => { current = i; render(); });
+    track.appendChild(el);
+
+    const dot = document.createElement('button');
+    dot.className = 'dot';
+    dot.addEventListener('click', () => { current = i; render(); });
+    dotsWrap.appendChild(dot);
+  });
+
+  const slideEls = [...track.children];
+  const dotEls = [...dotsWrap.children];
+
+  function render() {
+    const n = SLIDES.length;
+    slideEls.forEach((el, i) => {
+      let offset = i - current;
+      if (offset > n / 2) offset -= n;
+      if (offset < -n / 2) offset += n;
+
+      const abs = Math.abs(offset);
+      if (abs > 2) { el.style.opacity = '0'; el.style.pointerEvents = 'none'; return; }
+
+      el.style.pointerEvents = 'auto';
+      el.style.opacity = abs === 0 ? '1' : abs === 1 ? '.55' : '.25';
+      el.style.zIndex = 10 - abs;
+      const tx = offset * 170;
+      const tz = abs === 0 ? 0 : -160 - abs * 40;
+      const rot = offset === 0 ? 0 : offset > 0 ? -32 : 32;
+      const scale = abs === 0 ? 1 : 0.78;
+      el.style.transform = `translate3d(${tx}px,0,${tz}px) rotateY(${rot}deg) scale(${scale})`;
+      el.style.filter = abs === 0 ? 'none' : 'brightness(.55)';
+    });
+    dotEls.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  document.getElementById('nextBtn').onclick = () => { current = (current + 1) % SLIDES.length; render(); resetAutoplay(); };
+  document.getElementById('prevBtn').onclick = () => { current = (current - 1 + SLIDES.length) % SLIDES.length; render(); resetAutoplay(); };
+
+  let autoplay = setInterval(() => { current = (current + 1) % SLIDES.length; render(); }, 3200);
+  function resetAutoplay() { clearInterval(autoplay); autoplay = setInterval(() => { current = (current + 1) % SLIDES.length; render(); }, 3200); }
+
+  // swipe táctil
+  let touchX = null;
+  const stage = document.getElementById('stage');
+  stage.addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+  stage.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (dx > 40) { current = (current - 1 + SLIDES.length) % SLIDES.length; render(); resetAutoplay(); }
+    else if (dx < -40) { current = (current + 1) % SLIDES.length; render(); resetAutoplay(); }
+    touchX = null;
+  });
+
+  render();
+</script>
+</body>
+</html>

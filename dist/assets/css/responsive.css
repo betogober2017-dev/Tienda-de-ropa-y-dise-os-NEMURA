@@ -1,0 +1,41 @@
+/* ============================================================
+   NEMURA — Media queries (responsive)
+   5 reglas
+   ============================================================ */
+
+@media (max-width: 640px) { .container { padding: 0 18px; } }
+
+/* .nav-desktop / .burger ya no dependen del viewport — el menú
+   hamburguesa es el único menú, en todas las resoluciones (ver components.css) */
+
+@media (max-width: 900px) {
+      .footer-top .container { grid-template-columns: 1fr; gap: 36px; }
+      .footer-links { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    }
+
+@media (max-width: 768px) {
+      .footer-cta-strip .container { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 20px; }
+      .footer-cta-strip .btn { width: 100%; justify-content: center; }
+      .footer-top .container { padding: 40px 20px 32px; }
+      .footer-links { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+      .social-block .container { padding: 24px 20px; }
+      .social-row { gap: 8px; }
+      .social-icon { width: 40px; height: 40px; }
+      .social-icon svg { width: 18px; height: 18px; }
+      .footer-bottom .container { flex-direction: column; text-align: center; padding: 20px; }
+      .footer-bottom .pay-icons { justify-content: center; }
+    }
+
+@media (max-width: 480px) {
+      .footer-cta-strip .container { padding: 24px 16px; }
+      .footer-cta-strip h3 { font-size: 20px; }
+      .footer-top .container { padding: 32px 16px 24px; }
+      .footer-links { grid-template-columns: 1fr 1fr; gap: 20px 16px; }
+      .footer-col h5 { font-size: 10px; }
+      .footer-col a { font-size: 12px; margin-bottom: 10px; }
+      .social-block .container { padding: 20px 16px; }
+      .social-icon { width: 36px; height: 36px; }
+      .social-icon svg { width: 16px; height: 16px; }
+      .social-row { gap: 6px; }
+      .footer-bottom .container { padding: 16px; }
+    }

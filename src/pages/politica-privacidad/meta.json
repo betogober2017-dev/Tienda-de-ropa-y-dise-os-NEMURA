@@ -1,0 +1,56 @@
+{
+  "file": "politica-privacidad.html",
+  "title": "NEMURA — Política de Privacidad",
+  "description": "Política de privacidad de NEMURA. Conoce cómo protegemos tus datos personales según la Ley 1581 de 2012 y GDPR.",
+  "nav_items": [
+    {
+      "href": "index.html",
+      "label": "Inicio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-ropa.html",
+      "label": "Ropa",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-disenos.html",
+      "label": "Diseños",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "vasos.html",
+      "label": "Vasos",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "portfolio.html",
+      "label": "Portafolio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "contacto.html",
+      "label": "Contacto",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "AUTOMATISAMOCKUS.HTML",
+      "label": "⚡ FX",
+      "active": false,
+      "style": "color:var(--orange);"
+    }
+  ],
+  "has_search": true,
+  "cta": {
+    "title": "¿Necesitas más información<br>sobre tu privacidad?",
+    "href": "contacto.html",
+    "btn_text": "Contactar soporte"
+  },
+  "source_file": "politica-privacidad.html"
+}

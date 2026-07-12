@@ -1,0 +1,44 @@
+{
+  "file": "vasos.html",
+  "title": "NEMURA — Vasos Personalizados",
+  "description": "Vasos personalizados con diseños exclusivos. Sublimación en vasos térmicos, vidrio y cerámica.",
+  "nav_items": [
+    {
+      "href": "index.html",
+      "label": "Inicio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-ropa.html",
+      "label": "Ropa",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-disenos.html",
+      "label": "Diseños",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "vasos.html",
+      "label": "Vasos",
+      "active": true,
+      "style": null
+    },
+    {
+      "href": "contacto.html",
+      "label": "Contacto",
+      "active": false,
+      "style": null
+    }
+  ],
+  "has_search": true,
+  "cta": {
+    "title": "¿Quieres un vaso<br>con tu diseño?",
+    "href": "contacto.html",
+    "btn_text": "Cotizar ahora"
+  },
+  "source_file": "vasos.html"
+}

@@ -1,0 +1,56 @@
+{
+  "file": "index.html",
+  "title": "NEMURA — Tienda Oficial",
+  "description": "NEMURA — Streetwear y diseño digital. DTF, sublimación, screen printing y vectores premium.",
+  "nav_items": [
+    {
+      "href": "index.html",
+      "label": "Inicio",
+      "active": true,
+      "style": null
+    },
+    {
+      "href": "tienda-ropa.html",
+      "label": "Ropa",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-disenos.html",
+      "label": "Diseños",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "vasos.html",
+      "label": "Vasos",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "portfolio.html",
+      "label": "Portafolio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "contacto.html",
+      "label": "Contacto",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "AUTOMATISAMOCKUS.HTML",
+      "label": "⚡ FX",
+      "active": false,
+      "style": "color:var(--orange);"
+    }
+  ],
+  "has_search": true,
+  "cta": {
+    "title": "¿Listo para imprimir<br>tu propio diseño?",
+    "href": "contacto.html",
+    "btn_text": "Cotizar producción"
+  },
+  "source_file": "index.html"
+}

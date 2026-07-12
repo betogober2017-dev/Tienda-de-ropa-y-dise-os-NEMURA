@@ -1,0 +1,50 @@
+{
+  "file": "portfolio.html",
+  "title": "NEMURA — Portafolio | Ernesto Gómez",
+  "description": "Portafolio de diseño publicitario de Ernesto Gómez. Diseño, ilustración y producción visual de alto nivel para marcas y emprendedores.",
+  "nav_items": [
+    {
+      "href": "index.html",
+      "label": "Inicio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-ropa.html",
+      "label": "Ropa",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-disenos.html",
+      "label": "Diseños",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "vasos.html",
+      "label": "Vasos",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "portfolio.html",
+      "label": "Portafolio",
+      "active": true,
+      "style": null
+    },
+    {
+      "href": "contacto.html",
+      "label": "Contacto",
+      "active": false,
+      "style": null
+    }
+  ],
+  "has_search": false,
+  "cta": {
+    "title": "¿Quieres un diseño<br>personalizado?",
+    "href": "contacto.html",
+    "btn_text": "Cotizar ahora"
+  },
+  "source_file": "portfolio.html"
+}

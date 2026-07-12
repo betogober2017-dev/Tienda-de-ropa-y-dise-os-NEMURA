@@ -1,0 +1,29 @@
+/* ============================================================
+   NEMURA — Tokens de diseño: colores, tipografías, espaciados
+   1 reglas
+   ============================================================ */
+
+:root {
+      --ink: #0A0A0A;
+      --ink-2: #141414;
+      --ink-3: #1d1d1d;
+      --paper: #F5F3EE;
+      --orange: #FF6600;
+      --orange-2: #FF8A33;
+      --orange-dim: #7a3300;
+      --line: rgba(245, 243, 238, .12);
+      --line-strong: rgba(245, 243, 238, .22);
+      --white: #FFFFFF;
+      --blue: #2E6BFF;
+      --purple: #9B30FF;
+      --green: #22C55E;
+      --gold: #E8B923;
+      --red: #FF3B3B;
+      --teal: #00C8B8;
+      --font-display: 'Bungee', 'Archivo Black', Impact, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius: 2px;
+      --ease: cubic-bezier(.16, .84, .44, 1);
+      --dur: .45s;
+    }

@@ -1,0 +1,30 @@
+<header class="site-header" id="siteHeader">
+    <div class="container header-bar">
+      <a href="index.html" class="logo">
+        <img src="./imagenes/logos principal/logo-principal.png" alt="NEMURA" style="height:52px;width:auto;">
+        <span class="dot"></span>
+      </a>
+      {{NAV_ITEMS}}
+      <div class="header-actions">
+        {{SEARCH_BTN}}<button class="icon-btn" id="favBtn" aria-label="Favoritos">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+          <span class="badge" id="favBadge">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          <span class="badge" id="cartBadge">0</span>
+        </button>
+        <button class="burger" id="burgerBtn" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+  MENÚ — único para todo el sitio (desktop, tablet y móvil).
+  Generado desde nav_items del manifest, un solo lugar para editar.
+  ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      {{MOBILE_MENU_ITEMS}}
+    </div>
+  </div>

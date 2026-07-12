@@ -1,0 +1,56 @@
+{
+  "file": "AUTOMATISAMOCKUS.HTML",
+  "title": "NEMURA — Automatización FX | Mockups en Minutos",
+  "description": "Sistema de automatización de mockups para Photoshop. 1000+ mockups en minutos con un solo clic.",
+  "nav_items": [
+    {
+      "href": "index.html",
+      "label": "Inicio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-ropa.html",
+      "label": "Ropa",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "tienda-disenos.html",
+      "label": "Diseños",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "vasos.html",
+      "label": "Vasos",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "portfolio.html",
+      "label": "Portafolio",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "contacto.html",
+      "label": "Contacto",
+      "active": false,
+      "style": null
+    },
+    {
+      "href": "AUTOMATISAMOCKUS.HTML",
+      "label": "⚡ FX",
+      "active": true,
+      "style": "color:var(--orange);"
+    }
+  ],
+  "has_search": false,
+  "cta": {
+    "title": "¿Listo para automatizar<br>tu flujo de trabajo?",
+    "href": "#caja-oferta",
+    "btn_text": "Adquirir ahora"
+  },
+  "source_file": "AUTOMATISAMOCKUS.HTML"
+}

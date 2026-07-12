@@ -1,0 +1,9 @@
+{
+  "name": "nemura-modular",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build modular del sitio NEMURA — genera /dist a partir de src/",
+  "scripts": {
+    "build": "node scripts/build.js"
+  }
+}

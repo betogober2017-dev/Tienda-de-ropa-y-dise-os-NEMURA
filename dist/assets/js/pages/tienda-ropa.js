@@ -1,0 +1,547 @@
+/* ============================================================
+       CONFIGURACIÓN — CONEXIÓN A EXCEL VIA SHEETDB
+    ============================================================ */
+    const SHEETDB_URL = 'https://sheetdb.io/api/v1/nsfs9j9qrm77m';
+
+    /* ============================================================
+       PRODUCTOS DE RESPALDO (SOLO ROPA FÍSICA)
+    ============================================================ */
+    const PRODUCTOS_RESPALDO = [
+      { id: "f1", nombre_es: "Camisa Over-Sized Eren V1", categoria_es: "Anime Premium", tipo: "fisico", precio_cop: "85000", imagen1: "https://placehold.co/400x400/111/FF6600?text=Eren", estrellas: "4.8", reseñas: "127", tallas: "S,M,L,XL", destacado: "True" },
+      { id: "f2", nombre_es: "Hoodie Attack on Titan", categoria_es: "Anime Premium", tipo: "fisico", precio_cop: "120000", imagen1: "https://placehold.co/400x400/111/FF6600?text=AOT", estrellas: "4.9", reseñas: "89", tallas: "S,M,L,XL,XXL", destacado: "True" },
+      { id: "f3", nombre_es: "Gorra Demon Slayer", categoria_es: "Accesorios", tipo: "fisico", precio_cop: "45000", imagen1: "https://placehold.co/400x400/111/FF6600?text=Gorra", estrellas: "4.5", reseñas: "56" },
+      { id: "f4", nombre_es: "Camisa Over-Sized Levi", categoria_es: "Anime Premium", tipo: "fisico", precio_cop: "89000", imagen1: "https://placehold.co/400x400/111/FF6600?text=Levi", estrellas: "4.9", reseñas: "78", tallas: "S,M,L,XL" },
+      { id: "f5", nombre_es: "Hoodie Naruto Uzumaki", categoria_es: "Anime Premium", tipo: "fisico", precio_cop: "115000", imagen1: "https://placehold.co/400x400/111/FF6600?text=Naruto", estrellas: "4.7", reseñas: "102", tallas: "S,M,L,XL,XXL" },
+      { id: "f6", nombre_es: "Camisa Jujutsu Kaisen", categoria_es: "Anime Premium", tipo: "fisico", precio_cop: "79000", imagen1: "https://placehold.co/400x400/111/FF6600?text=JJK", estrellas: "4.6", reseñas: "67", tallas: "S,M,L,XL" }
+    ];
+
+    /* ============================================================
+       ESTADO
+    ============================================================ */
+    const state = {
+      productos: [],
+      carrito: JSON.parse(localStorage.getItem('nemura-carrito') || '[]'),
+      favoritos: JSON.parse(localStorage.getItem('nemura-favoritos') || '[]'),
+      filter: 'all',
+      visibleCount: 8,
+      selectedSize: {},
+      selectedQty: {},
+      carouselIndex: {}
+    };
+
+    /* ============================================================
+       UTILIDADES
+    ============================================================ */
+    
+
+    function getTexto(producto, campo, idioma = 'es') {
+      return producto[campo + '_' + idioma] || producto[campo] || '';
+    }
+
+    function getImagenes(producto) {
+      const imgs = [];
+      for (let i = 1; i <= 5; i++) {
+        if (producto['imagen' + i]) imgs.push(producto['imagen' + i]);
+      }
+      return imgs.length ? imgs : ['https://placehold.co/400x400/222/FF6600?text=NEMURA'];
+    }
+
+    
+
+    /* ============================================================
+       AUDIO — SONIDOS FUTURISTAS
+    ============================================================ */
+    let audioCtx;
+
+    
+
+    const sfx = {
+      openModal: () => playTone(520, 0.12, 'sine', 0.06),
+      closeModal: () => playTone(300, 0.1, 'sine', 0.05),
+      tab: () => playTone(700, 0.05, 'triangle', 0.04),
+      fav: () => playTone(880, 0.08, 'triangle', 0.05),
+      addCart: () => { playTone(600, 0.08, 'square', 0.04);
+        setTimeout(() => playTone(900, 0.09, 'square', 0.04), 80); },
+      success: () => { playTone(660, 0.1, 'sine', 0.05);
+        setTimeout(() => playTone(990, 0.14, 'sine', 0.05), 100); },
+      error: () => playTone(160, 0.2, 'sawtooth', 0.05)
+    };
+
+    /* ============================================================
+       OBTENER PRODUCTOS DESDE EXCEL (SOLO ROPA FÍSICA)
+    ============================================================ */
+    async function cargarProductosDesdeExcel() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = Array(6).fill(0).map(() => `
+        <div style="background:rgba(255,255,255,0.01);border:1px solid #1a1a1a;border-radius:20px;padding:18px;height:350px;position:relative;overflow:hidden;">
+          <div style="width:100%;aspect-ratio:1/1;border-radius:14px;background:linear-gradient(90deg,#111,#1a1a1a,#111);background-size:200% 100%;animation:skeleton-move 1.5s infinite;margin-bottom:12px;"></div>
+          <div style="width:60%;height:14px;background:#111;border-radius:4px;margin-bottom:6px;"></div>
+          <div style="width:80%;height:10px;background:#111;border-radius:4px;margin-bottom:4px;"></div>
+          <div style="width:40%;height:12px;background:#111;border-radius:4px;"></div>
+        </div>
+      `).join('');
+
+      try {
+        const resp = await fetch(SHEETDB_URL + '?sheet=PRODUCTOS_WEB&t=' + Date.now());
+        let data = await resp.json();
+
+        if (!data || data.length === 0) {
+          console.warn('⚠️ No hay datos en Excel, usando productos de respaldo');
+          data = PRODUCTOS_RESPALDO;
+        }
+
+        // Filtrar SOLO productos físicos
+        state.productos = data.filter(p => p.tipo === 'fisico' && p.activo !== 'False');
+        if (state.productos.length === 0) state.productos = PRODUCTOS_RESPALDO;
+
+        renderProductos(state.productos.slice(0, state.visibleCount));
+        document.getElementById('loadMoreBtn').style.display = state.productos.length > state.visibleCount ? 'inline-flex' : 'none';
+      } catch (error) {
+        console.warn('⚠️ Error conectando a Excel, usando productos de respaldo:', error);
+        state.productos = PRODUCTOS_RESPALDO;
+        renderProductos(PRODUCTOS_RESPALDO.slice(0, state.visibleCount));
+      }
+    }
+
+    /* ============================================================
+       RENDERIZAR PRODUCTOS
+    ============================================================ */
+    function renderProductos(lista) {
+      const grid = document.getElementById('productGrid');
+      if (!lista || lista.length === 0) {
+        grid.innerHTML =
+          `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#888;"><h3>No hay productos físicos disponibles</h3><p style="opacity:0.3;">Pronto tendremos más prendas</p></div>`;
+        return;
+      }
+
+      grid.innerHTML = lista.map((p, i) => {
+        const nombre = getTexto(p, 'nombre') || 'Producto';
+        const categoria = getTexto(p, 'categoria') || 'General';
+        const precio = parseFloat(p.precio_cop) || 0;
+        const img = p.imagen1 || 'https://placehold.co/400x400/222/FF6600?text=NEMURA';
+        const esFav = state.favoritos.includes(p.id);
+        const stars = parseFloat(p.estrellas) || 0;
+        const reviews = parseInt(p.reseñas) || 0;
+
+        return `
+        <div class="card" data-id="${p.id}" style="animation-delay:${i * 0.05}s;">
+          <div class="card-media">
+            <img src="${img}" alt="${nombre}" loading="lazy" onerror="this.src='https://placehold.co/400x400/222/FF6600?text=NEMURA'">
+            <div class="card-badges">
+              <span class="badge-tag fisico">👕 Físico</span>
+              ${p.destacado === 'True' || p.destacado === true ? '<span class="badge-tag oferta">🔥 Destacado</span>' : ''}
+            </div>
+            <button class="card-fav ${esFav?'active':''}" data-fav="${p.id}">
+              <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+            </button>
+          </div>
+          <div class="card-info">
+            <div class="card-cat">${categoria}</div>
+            <div class="card-name">${nombre}</div>
+            <div class="card-price-row">
+              <span class="card-price">${money(precio)}</span>
+            </div>
+            <div style="margin-top:8px;font-size:12px;color:var(--gold);">${'★'.repeat(Math.round(stars))}${'☆'.repeat(5-Math.round(stars))} <span style="color:rgba(245,243,238,.4);font-size:10px;">(${reviews})</span></div>
+          </div>
+        </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('.card-fav')) return;
+          const id = card.dataset.id;
+          const producto = state.productos.find(p => p.id === id);
+          if (producto) abrirModal(producto);
+        });
+        setTimeout(() => card.classList.add('in-view'), 50);
+      });
+
+      grid.querySelectorAll('.card-fav').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = btn.dataset.fav;
+          toggleFavorito(id);
+        });
+      });
+    }
+
+    /* ============================================================
+       FAVORITOS
+    ============================================================ */
+    function toggleFavorito(id) {
+      const idx = state.favoritos.indexOf(id);
+      if (idx > -1) { state.favoritos.splice(idx, 1);
+        toast('💔 Eliminado de favoritos'); } else { state.favoritos.push(id);
+        toast('❤️ Agregado a favoritos');
+        sfx.fav(); }
+      localStorage.setItem('nemura-favoritos', JSON.stringify(state.favoritos));
+      document.getElementById('favBadge').textContent = state.favoritos.length;
+      renderProductos(state.productos.slice(0, state.visibleCount));
+    }
+
+    /* ============================================================
+       FILTROS (Adaptados a ropa)
+    ============================================================ */
+    document.getElementById('filterBar').addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      document.querySelectorAll('#filterBar .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      state.filter = chip.dataset.filter;
+      state.visibleCount = 8;
+      aplicarFiltros();
+    });
+
+    function aplicarFiltros() {
+      let lista = [...state.productos];
+      if (state.filter === 'camisas') lista = lista.filter(p => (p.categoria_es || '').toLowerCase().includes('camisa'));
+      else if (state.filter === 'hoodies') lista = lista.filter(p => (p.categoria_es || '').toLowerCase().includes('hoodie'));
+      else if (state.filter === 'accesorios') lista = lista.filter(p => (p.categoria_es || '').toLowerCase().includes('gorra') || (p.categoria_es || '').toLowerCase().includes('accesorio'));
+      else if (state.filter === 'oferta') lista = lista.filter(p => p.destacado === 'True' || p.destacado === true);
+      renderProductos(lista.slice(0, state.visibleCount));
+      document.getElementById('loadMoreBtn').style.display = lista.length > state.visibleCount ? 'inline-flex' : 'none';
+    }
+
+    /* ============================================================
+       LOAD MORE
+    ============================================================ */
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      state.visibleCount += 8;
+      aplicarFiltros();
+    });
+
+    /* ============================================================
+       MODAL PREMIUM — CON PESTAÑAS (LIRAS)
+    ============================================================ */
+    const modalOverlay = document.getElementById('productModal');
+    const mBody = document.getElementById('mBody');
+    const tabFisicoBtn = document.getElementById('tabFisicoBtn');
+    const tabDigitalBtn = document.getElementById('tabDigitalBtn');
+    let currentProduct = null;
+
+    function abrirModal(producto) {
+      if (!producto) return;
+      currentProduct = producto;
+
+      const nombre = getTexto(producto, 'nombre') || 'Producto';
+      const categoria = getTexto(producto, 'categoria') || 'General';
+
+      document.getElementById('mTitleLabel').textContent = nombre;
+      document.getElementById('mTypeLabel').textContent = categoria;
+
+      tabFisicoBtn.classList.remove('active-fisico', 'active-digital');
+      tabDigitalBtn.classList.remove('active-fisico', 'active-digital');
+
+      // Siempre mostrar la pestaña física
+      tabFisicoBtn.classList.add('active-fisico');
+      tabFisicoBtn.style.display = 'block';
+      tabDigitalBtn.style.display = 'block';
+
+      renderModalPanels(producto);
+      modalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      sfx.openModal();
+    }
+
+    function cerrarModal() {
+      modalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      sfx.closeModal();
+    }
+
+    document.getElementById('mCloseBtn').addEventListener('click', cerrarModal);
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) cerrarModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
+
+    tabFisicoBtn.addEventListener('click', function() {
+      if (!currentProduct) return;
+      tabFisicoBtn.classList.add('active-fisico');
+      tabDigitalBtn.classList.remove('active-digital');
+      mBody.querySelectorAll('.mtab-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === 'fisico'));
+      sfx.tab();
+    });
+
+    tabDigitalBtn.addEventListener('click', function() {
+      if (!currentProduct) return;
+      tabDigitalBtn.classList.add('active-digital');
+      tabFisicoBtn.classList.remove('active-fisico');
+      mBody.querySelectorAll('.mtab-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === 'digital'));
+      sfx.tab();
+    });
+
+    /* ============================================================
+       RENDER MODAL PANELS (FÍSICO + DIGITAL)
+    ============================================================ */
+    function renderModalPanels(p) {
+      const imagenes = getImagenes(p);
+      const precio = parseFloat(p.precio_cop) || 0;
+      const stars = parseFloat(p.estrellas) || 0;
+      const reviews = parseInt(p.reseñas) || 0;
+      const nombre = getTexto(p, 'nombre') || 'Producto';
+      const descripcion = getTexto(p, 'descripcion') || 'Diseño exclusivo de NEMURA.';
+
+      const panelFisico = `
+      <div class="mtab-panel active" data-panel="fisico">
+        <div class="mp-grid">
+          <div class="carousel" id="carousel-fisico">
+            <div class="carousel-track" id="carouselTrack-fisico">
+              ${imagenes.map(src => `<img src="${src}" alt="${nombre}">`).join('')}
+            </div>
+            ${imagenes.length > 1 ? `
+            <button class="carousel-arrow prev" data-car="fisico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-arrow next" data-car="fisico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+            <div class="carousel-dots" id="carouselDots-fisico">${imagenes.map((_,i) => `<span class="${i===0?'active':''}"></span>`).join('')}</div>` : ''}
+          </div>
+          <div>
+            <div class="mp-cat">${getTexto(p, 'categoria') || 'General'}</div>
+            <h3 class="mp-title">${nombre}</h3>
+            <div class="mp-rating"><span class="stars">${'★'.repeat(Math.round(stars))}${'☆'.repeat(5-Math.round(stars))}</span> ${stars} · ${reviews} opiniones</div>
+            <div class="mp-price-row"><span class="mp-price">${money(precio)}</span></div>
+            <div class="mp-tax">IVA incluido</div>
+            <p style="margin-top:18px;font-size:14px;line-height:1.7;color:rgba(245,243,238,.75);">${descripcion}</p>
+            <div class="opt-block">
+              <div class="opt-label">
+                <span>${p.subtipo === 'gorra' ? 'Talla' : (p.talla_grupo === 'nino' ? 'Tallas (Niño)' : 'Tallas (Adulto)')}</span>
+                ${p.subtipo !== 'gorra' ? `<a href="guia-tallas.html" class="size-guide-link" target="_blank">Ver guía de tallas ${p.talla_grupo === 'nino' ? 'niño' : 'adulto'} →</a>` : ''}
+              </div>
+              <div class="size-row" id="sizeRow">
+                ${(p.tallas || 'S,M,L,XL').split(',').map(t => `<button class="size-btn">${t.trim()}</button>`).join('')}
+              </div>
+            </div>
+            <div class="qty-row">
+              <div class="qty-ctrl">
+                <button data-qty-minus="fisico">–</button>
+                <input type="text" readonly value="1" id="qtyInput-fisico">
+                <button data-qty-plus="fisico">+</button>
+              </div>
+            </div>
+            <div class="mp-actions">
+              <button class="btn btn-outline" data-add-cart="fisico">Agregar al carrito</button>
+              <button class="btn btn-primary" data-buy-now="fisico">Comprar ahora</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      const panelDigital = `
+      <div class="mtab-panel" data-panel="digital">
+        <div class="mp-grid">
+          <div>
+            <div class="carousel" style="aspect-ratio:1/1;position:relative;">
+              <div class="watermark-badge" style="position:absolute;top:12px;left:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(6px);padding:5px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line-strong);border-radius:3px;z-index:2;color:var(--blue);">Vista previa — marca de agua</div>
+              <img src="${imagenes[0] || 'https://placehold.co/400x400/222/7B2FFC?text=VECTOR'}" alt="${nombre} Digital" style="width:100%;height:100%;object-fit:cover;filter:brightness(.9);">
+            </div>
+          </div>
+          <div>
+            <div class="mp-cat">${getTexto(p, 'categoria') || 'General'} · Digital</div>
+            <h3 class="mp-title">${nombre} — Vector</h3>
+            <div class="mp-rating"><span class="stars">${'★'.repeat(Math.round(stars))}${'☆'.repeat(5-Math.round(stars))}</span> ${stars} · ${reviews} opiniones</div>
+            <div class="mp-price-row"><span class="mp-price">${money(precio * 0.5)}</span></div>
+            <div class="mp-tax">Descarga digital — sin impuestos</div>
+            <p style="margin-top:18px;font-size:14px;line-height:1.7;color:rgba(245,243,238,.75);">Versión digital del diseño ${nombre}. Archivo listo para producción.</p>
+            <div class="opt-block">
+              <div class="opt-label"><span>Formatos incluidos</span></div>
+              <div class="format-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px;">
+                ${(p.formato || 'PNG, SVG, AI, PSD, JPG').split(',').map(f => `<div class="format-chip" style="border:1px solid var(--line-strong);border-radius:6px;padding:10px 4px;text-align:center;font-family:var(--font-mono);font-size:11px;font-weight:700;transition:all .2s;">${f.trim()}</div>`).join('')}
+              </div>
+            </div>
+            <div class="stock-row" style="display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--green);">
+              ✅ <span>Descarga inmediata</span> — ∞ disponible
+            </div>
+            <div class="mp-actions">
+              <button class="btn btn-outline" data-add-cart="digital">Agregar al carrito</button>
+              <button class="btn btn-primary" data-buy-now="digital">Comprar ahora</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      mBody.innerHTML = panelFisico + panelDigital;
+
+      // Eventos carrusel
+      mBody.querySelectorAll('[data-car]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.car;
+          const track = document.getElementById('carouselTrack-' + id);
+          const dots = document.getElementById('carouselDots-' + id).children;
+          const total = dots.length;
+          state.carouselIndex[id] = state.carouselIndex[id] || 0;
+          state.carouselIndex[id] = this.classList.contains('prev') ?
+            (state.carouselIndex[id] - 1 + total) % total :
+            (state.carouselIndex[id] + 1) % total;
+          track.style.transform = `translateX(-${state.carouselIndex[id] * 100}%)`;
+          Array.from(dots).forEach((d, i) => d.classList.toggle('active', i === state.carouselIndex[id]));
+        });
+      });
+
+      // Eventos cantidad
+      mBody.querySelectorAll('[data-qty-minus], [data-qty-plus]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.qtyMinus || this.dataset.qtyPlus;
+          const input = document.getElementById('qtyInput-' + id);
+          let val = parseInt(input.value) || 1;
+          val = this.dataset.qtyMinus ? Math.max(1, val - 1) : val + 1;
+          input.value = val;
+        });
+      });
+
+      // Eventos tallas
+      mBody.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          this.parentElement.querySelectorAll('.size-btn').forEach(s => s.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+
+      // Eventos carrito
+      mBody.querySelectorAll('[data-add-cart], [data-buy-now]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tipo = this.dataset.addCart || this.dataset.buyNow;
+          const qty = parseInt(document.getElementById('qtyInput-' + tipo).value) || 1;
+          const nombre = getTexto(currentProduct, 'nombre') || 'Producto';
+          const precio = parseFloat(currentProduct.precio_cop) || 0;
+          const tallaSeleccionada = document.querySelector('#sizeRow .size-btn.selected');
+          const talla = tallaSeleccionada ? tallaSeleccionada.textContent : 'M';
+
+          const item = {
+            id: currentProduct.id + '-' + tipo + '-' + talla,
+            nombre: nombre + (tipo === 'digital' ? ' (Digital)' : '') + ' - ' + talla,
+            precio: tipo === 'digital' ? precio * 0.5 : precio,
+            cantidad: qty,
+            imagen: getImagenes(currentProduct)[0] || '',
+            tipo: tipo,
+            talla: talla
+          };
+          const existente = state.carrito.find(i => i.id === item.id);
+          if (existente) existente.cantidad += qty;
+          else state.carrito.push(item);
+          localStorage.setItem('nemura-carrito', JSON.stringify(state.carrito));
+          renderCarrito();
+          sfx.addCart();
+          toast('✅ ' + item.nombre + ' agregado al carrito');
+          if (this.dataset.buyNow) { cerrarModal();
+            abrirCarrito(); }
+        });
+      });
+    }
+
+    /* ============================================================
+       CARRITO
+    ============================================================ */
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartSubtotalEl = document.getElementById('cartSubtotal');
+    const cartBadge = document.getElementById('cartBadge');
+
+    function renderCarrito() {
+      cartBadge.textContent = state.carrito.reduce((a, i) => a + i.cantidad, 0);
+      if (state.carrito.length === 0) {
+        cartItemsEl.innerHTML =
+          `<div class="cart-empty">Tu carrito está vacío.<br>Explora el catálogo para empezar.</div>`;
+        cartSubtotalEl.textContent = money(0);
+        return;
+      }
+      cartItemsEl.innerHTML = state.carrito.map((item, idx) => `
+        <div class="cart-item">
+          <img src="${item.imagen}" alt="${item.nombre}">
+          <div class="cart-item-info">
+            <b>${item.nombre}</b>
+            <div class="meta">${item.tipo === 'digital' ? 'Digital' : 'Físico'} · Talla ${item.talla || 'M'} · Cant. ${item.cantidad}</div>
+            <div class="cart-item-price">${money(item.precio * item.cantidad)}</div>
+            <a class="cart-item-remove" data-remove="${idx}">Eliminar</a>
+          </div>
+        </div>
+      `).join('');
+      const subtotal = state.carrito.reduce((a, i) => a + i.precio * i.cantidad, 0);
+      cartSubtotalEl.textContent = money(subtotal);
+    }
+
+    cartItemsEl.addEventListener('click', (e) => {
+      const rm = e.target.closest('[data-remove]');
+      if (rm) { state.carrito.splice(+rm.dataset.remove, 1);
+        localStorage.setItem('nemura-carrito', JSON.stringify(state.carrito));
+        renderCarrito(); }
+    });
+
+    
+
+    
+
+    document.getElementById('cartBtn').addEventListener('click', abrirCarrito);
+    document.getElementById('cartCloseBtn').addEventListener('click', cerrarCarrito);
+    cartOverlay.addEventListener('click', cerrarCarrito);
+
+    document.getElementById('cartCheckoutBtn').addEventListener('click', () => {
+      if (state.carrito.length === 0) { toast('Tu carrito está vacío', 'error');
+        sfx.error(); return; }
+      toast('✅ Redirigiendo a pago...', 'success');
+      sfx.success();
+      setTimeout(cerrarCarrito, 1500);
+    });
+
+    /* ============================================================
+       BÚSQUEDA
+    ============================================================ */
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const term = prompt('🔍 ¿Qué buscas?');
+      if (term && term.trim()) {
+        const filtrados = state.productos.filter(p =>
+          (getTexto(p, 'nombre') || '').toLowerCase().includes(term.toLowerCase()) ||
+          (getTexto(p, 'categoria') || '').toLowerCase().includes(term.toLowerCase())
+        );
+        if (filtrados.length > 0) {
+          renderProductos(filtrados.slice(0, state.visibleCount));
+          toast(`🔍 ${filtrados.length} resultados encontrados`);
+        } else {
+          toast('🔍 No se encontraron productos', 'error');
+          sfx.error();
+        }
+      }
+    });
+
+    /* ============================================================
+       FAVORITOS VER
+    ============================================================ */
+    document.getElementById('favBtn').addEventListener('click', () => {
+      if (state.favoritos.length === 0) { toast('❤️ No tienes favoritos aún'); return; }
+      const favs = state.productos.filter(p => state.favoritos.includes(p.id));
+      renderProductos(favs);
+      toast(`❤️ ${favs.length} favoritos`);
+    });
+
+    /* ============================================================
+       HEADER SCROLL
+    ============================================================ */
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 12);
+    }, { passive: true });
+
+    /* ============================================================
+       MOBILE MENU
+    ============================================================ */
+    // Menú hamburguesa: inicializado globalmente en cart-utils.js
+
+    /* ============================================================
+       INICIO
+    ============================================================ */
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('favBadge').textContent = state.favoritos.length;
+    renderCarrito();
+    cargarProductosDesdeExcel();
+    NemuraCarousel.mount('#carruselNuevos', {
+      sheetdbUrl: SHEETDB_URL + '?sheet=PRODUCTOS_WEB',
+      tipo: 'fisico',
+      limite: 12,
+      onOpen: abrirModal,
+      enlaceBase: 'tienda-ropa.html'
+    });
+
+    console.log('👕 NEMURA — Tienda de Ropa Física');
+    console.log('✅ Conectado a Excel vía SheetDB');
+    console.log('✅ Modal premium con pestañas (Físico + Digital)');
+    console.log('✅ Carrito y favoritos persistentes');
+    console.log('✅ Sonidos futuristas');
+    console.log('🚀 ¡Todo listo!');

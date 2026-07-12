@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>NEMURA — Automatización FX | Mockups en Minutos</title>
+  <meta name="description" content="Sistema de automatización de mockups para Photoshop. 1000+ mockups en minutos con un solo clic.">
+
+  <!-- Open Graph / Twitter — generados desde site-config.js + meta.json -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NEMURA Studio">
+  <meta property="og:title" content="NEMURA — Automatización FX | Mockups en Minutos">
+  <meta property="og:description" content="Sistema de automatización de mockups para Photoshop. 1000+ mockups en minutos con un solo clic.">
+  <meta property="og:url" content="https://nemura.studio/AUTOMATISAMOCKUS.HTML">
+  <meta property="og:image" content="https://nemura.studio/imagenes/logos%20principal/logo-principal.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NEMURA — Automatización FX | Mockups en Minutos">
+  <meta name="twitter:description" content="Sistema de automatización de mockups para Photoshop. 1000+ mockups en minutos con un solo clic.">
+  <link rel="canonical" href="https://nemura.studio/AUTOMATISAMOCKUS.HTML">
+
+  <!-- ============================================================
+       FAVICON / LOGOS DESDE CARPETA
+  ============================================================ -->
+  <link rel="icon" type="image/x-icon" href="./imagenes/logos principal/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="./imagenes/logos principal/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./imagenes/logos principal/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="./imagenes/logos principal/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- ============================================================
+       CSS COMPARTIDO (cacheado por el navegador entre las 14 páginas)
+  ============================================================ -->
+  <link rel="stylesheet" href="/assets/css/variables.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/utilities.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/components.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/animations.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/responsive.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/components-carousel.css?v=23f6b681">
+  <link rel="stylesheet" href="/assets/css/pages/automatiza-mockups.css?v=440329ee">
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-bar">
+      <a href="index.html" class="logo">
+        <img src="./imagenes/logos principal/logo-principal.png" alt="NEMURA" style="height:52px;width:auto;">
+        <span class="dot"></span>
+      </a>
+      <nav class="nav-desktop">
+        <a href="index.html">Inicio</a>
+        <a href="tienda-ropa.html">Ropa</a>
+        <a href="tienda-disenos.html">Diseños</a>
+        <a href="vasos.html">Vasos</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="AUTOMATISAMOCKUS.HTML" class="active" style="color:var(--orange);">⚡ FX</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="favBtn" aria-label="Favoritos">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+          <span class="badge" id="favBadge">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          <span class="badge" id="cartBadge">0</span>
+        </button>
+        <button class="burger" id="burgerBtn" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+  MENÚ — único para todo el sitio (desktop, tablet y móvil).
+  Generado desde nav_items del manifest, un solo lugar para editar.
+  ============================================================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+            <a href="index.html"><span>01</span>Inicio</a>
+      <a href="tienda-ropa.html"><span>02</span>Ropa</a>
+      <a href="tienda-disenos.html"><span>03</span>Diseños</a>
+      <a href="vasos.html"><span>04</span>Vasos</a>
+      <a href="portfolio.html"><span>05</span>Portafolio</a>
+      <a href="contacto.html"><span>06</span>Contacto</a>
+      <a href="AUTOMATISAMOCKUS.HTML"><span>07</span>⚡ FX</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============================================================
+    PAGE HEADER
+    ============================================================ -->
+    <section class="page-header">
+      <div class="halftone"></div>
+      <div class="container">
+        <div class="eyebrow">Photoshop Tools · Automatización</div>
+        <h1>Automatización <span>FX</span></h1>
+        <p>Sistema de automatización de mockups para Photoshop. Genera 1000+ mockups en minutos con un solo clic. El estándar mundial en automatización de diseño.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+    SECCIÓN PRINCIPAL
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-venta">
+          <div class="eyebrow" style="justify-content:center;">Photoshop Tools</div>
+          <h2>1000 MOCKUPS<br><span>EN MINUTOS</span></h2>
+
+          <!-- VIDEO -->
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/zn_a5uZ6hF8?autoplay=1&mute=1&loop=1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="stats-grid">
+          <div class="stat-item"><b>1000+</b><span>MOCKUPS</span></div>
+          <div class="stat-item"><b>5 MIN</b><span>INSTALACIÓN</span></div>
+          <div class="stat-item"><b>85%</b><span>AHORRO TIEMPO</span></div>
+          <div class="stat-item"><b>99%</b><span>EFECTIVIDAD</span></div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon"><i class="fas fa-rocket"></i></div>
+            <h4>Automatización Total</h4>
+            <p>Genera cientos de mockups con un solo clic. Olvídate del trabajo repetitivo.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"><i class="fas fa-layer-group"></i></div>
+            <h4>1000+ Plantillas</h4>
+            <p>Acceso a una biblioteca gigante de mockups para todos los formatos y productos.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"><i class="fas fa-bolt"></i></div>
+            <h4>Optimizado para Photoshop</h4>
+            <p>Desarrollado específicamente para Photoshop, compatible con todas las versiones.</p>
+          </div>
+        </div>
+
+        <!-- CAJA DE OFERTA -->
+        <div class="caja-oferta" id="caja-oferta">
+          <span class="tag">OFERTA DE LANZAMIENTO</span>
+          <div class="precio-grande"><span>$</span>11<span class="decimal">.00</span></div>
+          <p class="desc">Acceso completo al sistema de automatización. Pago único, sin suscripciones.</p>
+
+          <div class="botones-pago-grid">
+            <div class="metodo-pago">
+              <span class="label">Pago Internacional</span>
+              <form action="https://www.paypal.com/ncp/payment/G6BQNPFQCLCT4" method="post" target="_blank">
+                <input class="btn-paypal" type="submit" value="Comprar con PayPal" />
+                <div class="badge-pagos">
+                  <span>Tarjetas</span>
+                  <span>PayPal</span>
+                  <span>Débito</span>
+                </div>
+              </form>
+            </div>
+
+            <div class="metodo-pago">
+              <span class="label">Pago Nacional (Sudamérica)</span>
+              <a class="btn-wompi" href="https://checkout.wompi.co/l/OwN4sZ" target="_blank">
+                <i class="fas fa-credit-card"></i> Pagar con Wompi
+              </a>
+              <div class="badge-pagos">
+                <span>Bancolombia</span>
+                <span>Nequi</span>
+                <span>PSE</span>
+                <span>Tarjetas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+  MODAL PREMIUM — CON PESTAÑAS (LIRAS)
+  ============================================================ -->
+  <div class="modal-overlay" id="productModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="mh-title"><small id="mTypeLabel">Producto</small><strong id="mTitleLabel">—</strong></div>
+        <button class="modal-close" id="mCloseBtn" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div class="modal-tabs" id="mTabs">
+        <button class="mtab active-fisico" data-tab="fisico" id="tabFisicoBtn">
+          <span class="tab-icon">👕</span> Producto Físico
+        </button>
+        <button class="mtab" data-tab="digital" id="tabDigitalBtn">
+          <span class="tab-icon">💻</span> Vector & Diseño
+        </button>
+      </div>
+      <div class="modal-body" id="mBody">
+        <!-- Paneles inyectados por JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+  CART DRAWER (IDÉNTICO)
+  ============================================================ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <h3>Tu carrito</h3>
+      <button class="modal-close" id="cartCloseBtn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot" id="cartFoot">
+      <div class="cart-total-row"><span>Subtotal</span><b id="cartSubtotal">$0</b></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" id="cartCheckoutBtn">Ir a pagar</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+  TOAST
+  ============================================================ -->
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <!-- ============================================================
+  FOOTER (IDÉNTICO AL INDEX)
+  ============================================================ -->
+
+  <footer class="site-footer">
+    <div class="footer-cta-strip">
+      <div class="container">
+        <h3>¿Listo para automatizar<br>tu flujo de trabajo?</h3>
+        <a href="#caja-oferta" class="btn btn-primary">Adquirir ahora
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <img src="./imagenes/logos principal/logo-principal.png" alt="NEMURA" class="logo-footer" style="height:50px;width:auto;">
+          <p>Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Tienda</h5>
+            <a href="tienda-ropa.html">Ropa física</a>
+            <a href="tienda-disenos.html">Diseños digitales</a>
+            <a href="vasos.html">Vasos personalizados</a>
+          </div>
+          <div class="footer-col">
+            <h5>Ayuda</h5>
+            <a href="guia-tallas.html">Guía de tallas</a>
+            <a href="envios.html">Envíos y tiempos</a>
+            <a href="garantia.html">Cambios y garantía</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="terminos-servicio.html">Términos de servicio</a>
+            <a href="politica-privacidad.html">Política de privacidad</a>
+            <a href="licencias-uso.html">Licencias de uso digital</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social-block">
+      <div class="container">
+        <span class="social-label">Síguenos en redes</span>
+        <div class="social-row">
+          <a href="https://wa.me/573046244252" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp"><span class="tooltip">WhatsApp</span>
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.35 1.29 4.8L2 22l5.42-1.38a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm5.8 13.8c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.15.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.15.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.38-.24.63-.15.25.1 1.6.76 1.87.9.27.14.45.2.52.32.07.12.07.68-.17 1.36Z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61591386573676" target="_blank" class="social-icon facebook" aria-label="Facebook"><span class="tooltip">Facebook</span>
+            <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.5-3h-3V8.4c0-.87.24-1.46 1.5-1.46H16.6V4.3c-.27-.04-1.18-.12-2.24-.12-2.22 0-3.74 1.36-3.74 3.85V10.5H8v3h2.62V21h2.88Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/nemuramanga" target="_blank" class="social-icon instagram" aria-label="Instagram"><span class="tooltip">Instagram</span>
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.5.5.85 1.1 1.16 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.42.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.16 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.25-1.37.42-2.43.47-1.06.05-1.42.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 0 1 1.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2.01 9.3 2 12 2Zm0 1.8c-2.65 0-2.98.01-4.02.06-.87.04-1.34.18-1.65.3-.42.16-.71.35-1.02.66-.31.31-.5.6-.66 1.02-.12.31-.26.78-.3 1.65C4.31 8.68 4.3 9.01 4.3 12s.01 3.32.06 4.35c.04.87.18 1.34.3 1.65.16.42.35.71.66 1.02.31.31.6.5 1.02.66.31.12.78.26 1.65.3 1.04.05 1.37.06 4.02.06s2.98-.01 4.02-.06c.87-.04 1.34-.18 1.65-.3.42-.16.71-.35 1.02-.66.31-.31.5-.6.66-1.02.12-.31.26-.78.3-1.65.05-1.03.06-1.36.06-4.35s-.01-3.32-.06-4.35c-.04-.87-.18-1.34-.3-1.65a2.7 2.7 0 0 0-.66-1.02 2.7 2.7 0 0 0-1.02-.66c-.31-.12-.78-.26-1.65-.3C14.98 3.81 14.65 3.8 12 3.8Zm0 3.15A5.05 5.05 0 1 1 12 17.05 5.05 5.05 0 0 1 12 6.95Zm0 1.8a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5Zm5.25-1.99a1.18 1.18 0 1 1-2.35 0 1.18 1.18 0 0 1 2.35 0Z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@namuramanga" target="_blank" class="social-icon tiktok" aria-label="TikTok"><span class="tooltip">TikTok</span>
+            <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.1v14.2a2.9 2.9 0 1 1-2.06-2.78V10.2a6 6 0 1 0 5.16 5.94V8.9a7.9 7.9 0 0 0 4.4 1.34V7.1a4.8 4.8 0 0 1-4.4-5.1Z"/></svg>
+          </a>
+          <a href="https://t.me/NemuraDISENOSSINFIN" target="_blank" class="social-icon telegram" aria-label="Telegram" style="border-color:#0088cc;"><span class="tooltip">Telegram</span>
+            <svg viewBox="0 0 24 24"><path d="M11.944 2A9.944 9.944 0 0 0 2 11.944c0 5.488 4.456 9.944 9.944 9.944 5.488 0 9.944-4.456 9.944-9.944A9.944 9.944 0 0 0 11.944 2zm4.831 7.243c-.29 3.037-1.545 7.388-2.185 8.943-.268.672-.884.67-1.324.414-.348-.2-1.928-1.236-2.696-1.886-.516-.437-.857-.854.08-1.426.383-.234 2.203-2.043 3.201-3.012.306-.297.166-.577-.244-.336-1.353.893-3.226 2.125-3.226 2.125s-.337.22-.84.07c-.504-.15-1.676-.566-1.676-.566s-.717-.448.45-.935c4.657-2.015 6.758-3.021 9.62-3.893.05-.1.344-.067.344-.067z"/></svg>
+          </a>
+          <a href="mailto:nemmurasolisitudeswed1@gmail.com" class="social-icon mail" aria-label="Correo"><span class="tooltip">Correo</span>
+            <svg viewBox="0 0 24 24"><path d="M2 5h20v14H2V5Zm2 1.6V17h16V6.6l-8 5.5-8-5.5Zm.7-.6L12 10.4 19.3 6H4.7Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© <span id="year"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados.</span>
+        <div class="pay-icons">
+          <span>PayPal</span><span>Wompi</span><span>Stripe</span><span>Binance Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/cart-utils.js?v=f910baa4"></script>
+  <script src="/assets/js/dynamic-carousel.js?v=afb6ec22"></script>
+  <script src="/assets/js/pages/automatiza-mockups.js?v=c1feef42"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+  <main>
+    <!-- ============================================================
+    PAGE HEADER
+    ============================================================ -->
+    <section class="page-header">
+      <div class="halftone"></div>
+      <div class="container">
+        <div class="eyebrow">Encuentra tu talla perfecta</div>
+        <h1>Guía de <span>Tallas</span></h1>
+        <p>Encuentra la talla perfecta para tus prendas NEMURA. Medidas precisas para camisas, hoodies y más.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+    CONTENIDO PRINCIPAL
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Medidas por talla</div>
+            <h2>Tabla de <span>Tallas</span></h2>
+          </div>
+          <p>Selecciona tu talla según tus medidas. Si estás entre dos tallas, te recomendamos elegir la más grande.</p>
+        </div>
+
+        <!-- Tabla comparativa -->
+        <div class="tabla-comparativa">
+          <table>
+            <thead>
+              <tr>
+                <th>Talla</th>
+                <th>Pecho (cm)</th>
+                <th>Cintura (cm)</th>
+                <th>Largo (cm)</th>
+                <th>Manga (cm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>XS</td>
+                <td>84-88</td>
+                <td>68-72</td>
+                <td>64</td>
+                <td>58</td>
+              </tr>
+              <tr>
+                <td>S</td>
+                <td>89-93</td>
+                <td>73-77</td>
+                <td>66</td>
+                <td>60</td>
+              </tr>
+              <tr>
+                <td>M</td>
+                <td>94-98</td>
+                <td>78-82</td>
+                <td>68</td>
+                <td>62</td>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>99-103</td>
+                <td>83-87</td>
+                <td>70</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>104-108</td>
+                <td>88-92</td>
+                <td>72</td>
+                <td>66</td>
+              </tr>
+              <tr>
+                <td>XXL</td>
+                <td>109-113</td>
+                <td>93-97</td>
+                <td>74</td>
+                <td>68</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Consejos -->
+        <div style="margin-top:48px;">
+          <h2 style="font-family:var(--font-display);font-size:28px;text-transform:uppercase;margin-bottom:24px;">Consejos para <span style="color:var(--orange);">medir</span></h2>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="icon"><i class="fas fa-tape"></i></div>
+              <h4>Usa cinta métrica</h4>
+              <p>Utiliza una cinta métrica flexible para tomar las medidas con precisión.</p>
+            </div>
+            <div class="tip-card">
+              <div class="icon"><i class="fas fa-shirt"></i></div>
+              <h4>Mide sobre ropa interior</h4>
+              <p>Para obtener medidas exactas, mide sobre ropa interior o prendas ajustadas.</p>
+            </div>
+            <div class="tip-card">
+              <div class="icon"><i class="fas fa-ruler"></i></div>
+              <h4>Compara con tu talla</h4>
+              <p>Si ya tienes una prenda que te queda bien, usa sus medidas como referencia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productos destacados -->
+        <div style="margin-top:64px;padding-top:48px;border-top:1px solid var(--line);">
+          <h2 style="font-family:var(--font-display);font-size:28px;text-transform:uppercase;margin-bottom:24px;">Prendas <span style="color:var(--orange);">disponibles</span></h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;">
+            <a href="tienda-ropa.html" style="background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center;transition:all .3s var(--ease);">
+              <div style="font-size:40px;margin-bottom:12px;">👕</div>
+              <h4 style="font-family:var(--font-display);font-size:16px;text-transform:uppercase;">Camisas</h4>
+              <p style="font-size:12px;color:rgba(245,243,238,.4);">Over-Sized · Clásicas</p>
+            </a>
+            <a href="tienda-ropa.html" style="background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center;transition:all .3s var(--ease);">
+              <div style="font-size:40px;margin-bottom:12px;">🧥</div>
+              <h4 style="font-family:var(--font-display);font-size:16px;text-transform:uppercase;">Hoodies</h4>
+              <p style="font-size:12px;color:rgba(245,243,238,.4);">Con capucha · Cremallera</p>
+            </a>
+            <a href="tienda-ropa.html" style="background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:center;transition:all .3s var(--ease);">
+              <div style="font-size:40px;margin-bottom:12px;">🧢</div>
+              <h4 style="font-family:var(--font-display);font-size:16px;text-transform:uppercase;">Gorras</h4>
+              <p style="font-size:12px;color:rgba(245,243,238,.4);">Adjustables · Estructuradas</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+  CART DRAWER
+  ============================================================ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <h3>Tu carrito</h3>
+      <button class="modal-close" id="cartCloseBtn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot" id="cartFoot">
+      <div class="cart-total-row"><span>Subtotal</span><b id="cartSubtotal">$0</b></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" id="cartCheckoutBtn">Ir a pagar</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+  TOAST
+  ============================================================ -->
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <!-- ============================================================
+  FOOTER (IDÉNTICO)
+  ============================================================ -->

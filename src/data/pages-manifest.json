@@ -1,0 +1,847 @@
+{
+  "index": {
+    "file": "index.html",
+    "title": "NEMURA — Tienda Oficial",
+    "description": "NEMURA — Streetwear y diseño digital. DTF, sublimación, screen printing y vectores premium.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Listo para imprimir<br>tu propio diseño?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar producción"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "tienda-ropa": {
+    "file": "tienda-ropa.html",
+    "title": "NEMURA — Ropa Física",
+    "description": "Ropa personalizada DTF, sublimación y screen printing. Camisas, hoodies y más.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Listo para encontrar<br>tu talla perfecta?",
+      "href": "tienda-ropa.html",
+      "btn_text": "Ver catálogo"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "tienda-disenos": {
+    "file": "tienda-disenos.html",
+    "title": "NEMURA — Diseños Digitales",
+    "description": "Vectores premium, mockups y diseños digitales listos para producción en DTF, sublimación y serigrafía.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas un diseño<br>personalizado?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar diseño"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "vasos": {
+    "file": "vasos.html",
+    "title": "NEMURA — Vasos Personalizados",
+    "description": "Vasos personalizados con diseños exclusivos. Sublimación en vasos térmicos, vidrio y cerámica.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Quieres un vaso<br>con tu diseño?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar ahora"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "carrito": {
+    "file": "carrito.html",
+    "title": "NEMURA — Carrito de Compras",
+    "description": "Revisa tu carrito de compras en NEMURA. Ropa, diseños digitales, vasos personalizados y más.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      }
+    ],
+    "has_search": false,
+    "cta": {
+      "title": "¿Listo para finalizar<br>tu compra?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados."
+  },
+  "contacto": {
+    "file": "contacto.html",
+    "title": "NEMURA — Contacto",
+    "description": "Contacta con NEMURA para cotizaciones, diseños personalizados, impresión y producción publicitaria.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": true,
+        "style": null
+      }
+    ],
+    "has_search": false,
+    "cta": {
+      "title": "¿Listo para empezar<br>tu proyecto?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar ahora"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados."
+  },
+  "envios": {
+    "file": "envios.html",
+    "title": "NEMURA — Política de Envíos",
+    "description": "Política de envíos de NEMURA. Normas de envío para Colombia e internacionales. Términos legales y condiciones.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas ayuda con<br>tu envío?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "garantia": {
+    "file": "garantia.html",
+    "title": "NEMURA — Cambios y Garantía",
+    "description": "Política de cambios y garantía de NEMURA. Conoce nuestros términos legales para Colombia e internacional.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas ayuda con<br>un cambio o garantía?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "guia-tallas": {
+    "file": "guia-tallas.html",
+    "title": "NEMURA — Guía de Tallas",
+    "description": "Guía de tallas de NEMURA. Encuentra tu talla perfecta para camisas, hoodies y más.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Listo para encontrar<br>tu talla perfecta?",
+      "href": "tienda-ropa.html",
+      "btn_text": "Ver catálogo"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "licencias-uso": {
+    "file": "licencias-uso.html",
+    "title": "NEMURA — Diseños con Licencia",
+    "description": "Diseños digitales con licencia de uso. Protege tu trabajo con derechos de autor incluidos en cada archivo.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas un diseño<br>personalizado?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar diseño"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Todos los derechos reservados."
+  },
+  "politica-privacidad": {
+    "file": "politica-privacidad.html",
+    "title": "NEMURA — Política de Privacidad",
+    "description": "Política de privacidad de NEMURA. Conoce cómo protegemos tus datos personales según la Ley 1581 de 2012 y GDPR.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas más información<br>sobre tu privacidad?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "portfolio": {
+    "file": "portfolio.html",
+    "title": "NEMURA — Portafolio | Ernesto Gómez",
+    "description": "Portafolio de diseño publicitario de Ernesto Gómez. Diseño, ilustración y producción visual de alto nivel para marcas y emprendedores.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": true,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      }
+    ],
+    "has_search": false,
+    "cta": {
+      "title": "¿Quieres un diseño<br>personalizado?",
+      "href": "contacto.html",
+      "btn_text": "Cotizar ahora"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados."
+  },
+  "terminos-servicio": {
+    "file": "terminos-servicio.html",
+    "title": "NEMURA — Términos de Servicio",
+    "description": "Términos y condiciones de servicio de NEMURA. Lee nuestras políticas legales para Colombia e internacional.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": false,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": true,
+    "cta": {
+      "title": "¿Necesitas más información<br>sobre nuestros términos?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Streetwear y diseño digital hechos en taller propio. Impresión, personalización y vectores originales — sin intermediarios.",
+    "copyright": "© <span id=\"year\"></span> NEMURA. Todos los derechos reservados."
+  },
+  "automatiza-mockups": {
+    "file": "AUTOMATISAMOCKUS.HTML",
+    "title": "NEMURA — Automatización FX | Mockups en Minutos",
+    "description": "Sistema de automatización de mockups para Photoshop. 1000+ mockups en minutos con un solo clic.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "AUTOMATISAMOCKUS.HTML",
+        "label": "⚡ FX",
+        "active": true,
+        "style": "color:var(--orange);"
+      }
+    ],
+    "has_search": false,
+    "cta": {
+      "title": "¿Listo para automatizar<br>tu flujo de trabajo?",
+      "href": "#caja-oferta",
+      "btn_text": "Adquirir ahora"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados."
+  },
+  "_footer_links_canonical": [
+    [
+      "tienda-ropa.html",
+      "Ropa física"
+    ],
+    [
+      "tienda-disenos.html",
+      "Diseños digitales"
+    ],
+    [
+      "vasos.html",
+      "Vasos personalizados"
+    ],
+    [
+      "guia-tallas.html",
+      "Guía de tallas"
+    ],
+    [
+      "envios.html",
+      "Envíos y tiempos"
+    ],
+    [
+      "garantia.html",
+      "Cambios y garantía"
+    ],
+    [
+      "terminos-servicio.html",
+      "Términos de servicio"
+    ],
+    [
+      "politica-privacidad.html",
+      "Política de privacidad"
+    ],
+    [
+      "licencias-uso.html",
+      "Licencias de uso digital"
+    ]
+  ],
+  "descarga": {
+    "file": "descarga.html",
+    "title": "NEMURA — Descarga tu compra",
+    "description": "Página de confirmación y descarga para compras digitales de NEMURA.",
+    "nav_items": [
+      {
+        "href": "index.html",
+        "label": "Inicio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-ropa.html",
+        "label": "Ropa",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "tienda-disenos.html",
+        "label": "Diseños",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "vasos.html",
+        "label": "Vasos",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "portfolio.html",
+        "label": "Portafolio",
+        "active": false,
+        "style": null
+      },
+      {
+        "href": "contacto.html",
+        "label": "Contacto",
+        "active": false,
+        "style": null
+      }
+    ],
+    "has_search": false,
+    "cta": {
+      "title": "¿Necesitas ayuda<br>con tu descarga?",
+      "href": "contacto.html",
+      "btn_text": "Contactar soporte"
+    },
+    "brand_tagline": "Diseño y producción publicitaria de alto nivel. Tecnología y precisión en cada píxel. El estándar mundial en diseño.",
+    "copyright": "© <span id=\"year\"></span> NEMURA · Diseñador Ernesto Gómez. Todos los derechos reservados."
+  }
+}
